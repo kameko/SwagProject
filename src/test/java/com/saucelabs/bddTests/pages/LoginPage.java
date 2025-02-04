@@ -17,6 +17,9 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='login-button']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    public WebElement errorMessageHeading;
+
     public LoginPage() {
         PageFactory.initElements(DriverUtils.driver(), this);
     }

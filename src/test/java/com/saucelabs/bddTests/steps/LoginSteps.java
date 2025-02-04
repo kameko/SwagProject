@@ -38,4 +38,10 @@ public class LoginSteps {
         DriverUtils.logScreenshot();
         Assert.assertEquals(DriverUtils.driver().getCurrentUrl(), InventoryPage.URL);
     }
+
+    @Then("the user sees the login failure message {string}")
+    public void theUserSeesTheLoginFailureMessage(String message) {
+        DriverUtils.logScreenshot();
+        Assert.assertEquals(loginPage.errorMessageHeading.getText().trim(), message);
+    }
 }
