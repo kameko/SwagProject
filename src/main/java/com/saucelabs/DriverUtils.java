@@ -52,6 +52,7 @@ public class DriverUtils {
                 if (TestProperties.HEADLESS) {
                     // Not supported.
                     // options_safari.addArguments("--headless");
+                    throw new UnsupportedOperationException("Cannot launch Safari in headless mode");
                 }
                 DriverUtils.driver = new SafariDriver(options_safari);
                 break;
