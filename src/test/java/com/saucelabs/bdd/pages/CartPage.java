@@ -1,8 +1,5 @@
 package com.saucelabs.bdd.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 public class CartPage {
     /**
      * The URL of the checkout cart landing page, which shows an overview of all items in the cart.

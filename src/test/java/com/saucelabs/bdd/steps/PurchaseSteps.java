@@ -11,7 +11,6 @@ import org.testng.Assert;
 
 public class PurchaseSteps {
     InventoryPage inventoryPage = new InventoryPage();
-    CartPage cartPage = new CartPage();
 
     @When("adds {string} to the cart")
     public void addsToTheCart(String item) {
