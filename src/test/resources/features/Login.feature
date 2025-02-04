@@ -1,5 +1,6 @@
 Feature: Log in to Swag Labs
 
+  @Login
   Scenario Outline: Login with valid credentials
     Given the user navigates to the Swag Labs login page
     When the user enters the username "<Username>" into the username textbox
@@ -15,7 +16,7 @@ Feature: Log in to Swag Labs
       | error_user              | secret_sauce |
       | visual_user             | secret_sauce |
 
-  @LockedOut
+  @Login @LockedOut
   Scenario: Login with valid, revoked credentials
     Given the user navigates to the Swag Labs login page
     When the user enters the username "locked_out_user" into the username textbox

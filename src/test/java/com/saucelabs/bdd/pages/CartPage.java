@@ -24,21 +24,12 @@ public class CartPage {
      */
     public static final String COMPLETE_URL = "https://www.saucedemo.com/checkout-complete.html";
 
-    @FindBy(xpath = "//button[@id='checkout']")
-    public WebElement checkoutButton;
 
-    @FindBy(xpath = "//input[@id='first-name']")
-    public WebElement firstNameTextbox;
-
-    @FindBy(xpath = "//input[@id='last-name']")
-    public WebElement lastNameTextbox;
-
-    @FindBy(xpath = "//input[@id='postal-code']")
-    public WebElement zipcodeTextbox;
-
-    @FindBy(xpath = "//input[@id='continue']")
-    public WebElement continueButton;
-
-    @FindBy(xpath = "//div[@class='inventory_item_price']")
-    public WebElement checkoutPriceText;
+    public static final String checkoutButtonXPath = "//button[@id='checkout']";
+    public static final String firstNameTextboxXPath = "//input[@id='first-name']";
+    public static final String lastNameTextboxXPath = "//input[@id='last-name']";
+    public static final String zipcodeTextboxXPath = "//input[@id='postal-code']";
+    public static final String continueButtonXPath = "//input[@id='continue']";
+    public static final String finishButtonXPath = "//button[@id='finish']";
+    public static final String checkoutPriceTextXPath = "//div[@class='inventory_item_price']";
 }

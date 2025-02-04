@@ -4,25 +4,30 @@ import com.saucelabs.DriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Map;
 
 public class InventoryPage {
+    public static final String shoppingCartLocator = "//a[@class='shopping_cart_link']";
+
     public static final String URL = "https://www.saucedemo.com/inventory.html";
+
     Map<String, Product> products;
 
-    @FindBy(xpath = "//*[@id='shopping_cart_container']/a")
+    @FindBy(xpath = shoppingCartLocator)
     public WebElement shoppingCartButton;
 
     public InventoryPage() {
         products = Map.of(
-                "Sauce Labs Backpack", new Product("sauce-labs-backpack", "29.99"),
-                "Sauce Labs Bike Light", new Product("sauce-labs-bike-light", "9.99"),
-                "Sauce Labs Bolt T-Shirt", new Product("sauce-labs-bolt-t-shirt", "15.99"),
-                "Sauce Labs Fleece Jacket", new Product("sauce-labs-fleece-jacket", "49.99"),
-                "Sauce Labs Onesie", new Product("sauce-labs-onesie", "7.99"),
-                "Test.allTheThings() T-Shirt (Red)", new Product("test.allthethings()-t-shirt-(red)", "15.99")
+                "Sauce Labs Backpack", new Product("sauce-labs-backpack", "$29.99"),
+                "Sauce Labs Bike Light", new Product("sauce-labs-bike-light", "$9.99"),
+                "Sauce Labs Bolt T-Shirt", new Product("sauce-labs-bolt-t-shirt", "$15.99"),
+                "Sauce Labs Fleece Jacket", new Product("sauce-labs-fleece-jacket", "$49.99"),
+                "Sauce Labs Onesie", new Product("sauce-labs-onesie", "$7.99"),
+                "Test.allTheThings() T-Shirt (Red)", new Product("test.allthethings()-t-shirt-(red)", "$15.99")
         );
+        PageFactory.initElements(DriverUtils.driver(), this);
     }
 
     /**
@@ -57,6 +62,17 @@ public class InventoryPage {
         return elm.getText();
     }
 
+    /**
+     * Get the price of the given item from the web page (*not* the database!) after it's been removed
+     * @param product The product to fetch.
+     * @return The price of the item from the web page.
+     */
+    public String getRemovedInventoryPagePrice(String product) {
+        var item = products.get(product);
+        var elm = DriverUtils.driver().findElement(By.xpath(item.formatRemovedPriceLocator()));
+        return elm.getText();
+    }
+
     static class Product {
         public String addToCartLocator;
         public String price;
@@ -70,8 +86,16 @@ public class InventoryPage {
             return "//button[@id='add-to-cart-" + addToCartLocator + "']";
         }
 
+        public String formatRemoveLocator() {
+            return "//button[@id='remove-" + addToCartLocator + "']";
+        }
+
         public String formatPriceLocator() {
             return formatAddToCartLocator() + "/preceding-sibling::div[@class='inventory_item_price']";
+        }
+
+        public String formatRemovedPriceLocator() {
+            return formatRemoveLocator() + "/preceding-sibling::div[@class='inventory_item_price']";
         }
     }
 }
