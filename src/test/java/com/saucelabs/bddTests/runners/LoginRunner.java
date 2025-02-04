@@ -9,5 +9,5 @@ import io.cucumber.testng.CucumberOptions;
         plugin = "html:target/reports/first.html",
         dryRun = false
 )
-public class FirstTest extends AbstractTestNGCucumberTests {
+public class LoginRunner extends AbstractTestNGCucumberTests {
 }

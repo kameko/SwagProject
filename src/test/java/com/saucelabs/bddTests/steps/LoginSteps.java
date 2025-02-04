@@ -1,6 +1,5 @@
 package com.saucelabs.bddTests.steps;
 
-import com.saucelabs.CommonMethods;
 import com.saucelabs.DriverUtils;
 import com.saucelabs.bddTests.pages.InventoryPage;
 import com.saucelabs.bddTests.pages.LoginPage;
@@ -9,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class FirstTest {
+public class LoginSteps {
     LoginPage loginPage = new LoginPage();
 
     @When("the user navigates to the Swag Labs login page")
