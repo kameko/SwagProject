@@ -24,7 +24,7 @@ public class CartPage {
      */
     public static final String COMPLETE_URL = "https://www.saucedemo.com/checkout-complete.html";
 
-
+    // Forgive this, it's just a hack as I rushed for the demo.
     public static final String checkoutButtonXPath = "//button[@id='checkout']";
     public static final String firstNameTextboxXPath = "//input[@id='first-name']";
     public static final String lastNameTextboxXPath = "//input[@id='last-name']";

@@ -7,11 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 public class PurchaseSteps {
     InventoryPage inventoryPage = new InventoryPage();
@@ -24,16 +20,13 @@ public class PurchaseSteps {
 
     @And("clicks the shopping cart icon")
     public void clicksTheShoppingCartIcon() {
-//        inventoryPage.shoppingCartButton.click();
-//        var elm = inventoryPage.shoppingCartButton;
         var elm = DriverUtils.driver().findElement(By.xpath(InventoryPage.shoppingCartLocator));
-        var wait = new WebDriverWait(DriverUtils.driver(), Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.elementToBeClickable(elm));
         elm.click();
     }
 
     @Then("verifies the price of product {string} is {string}")
     public void verifiesThePriceOfProductIs(String product, String price) {
+        DriverUtils.logScreenshot();
         Assert.assertEquals(inventoryPage.getRemovedInventoryPagePrice(product), price);
     }
 
@@ -71,12 +64,14 @@ public class PurchaseSteps {
 
     @Then("verifies the price of the product is {string}")
     public void verifiesThePriceOfProductIs(String price) {
+        DriverUtils.logScreenshot();
         var elm = DriverUtils.driver().findElement(By.xpath(CartPage.checkoutPriceTextXPath));
         Assert.assertEquals(elm.getText(), price);
     }
 
     @Then("verifies the order has been placed")
     public void verifiesTheOrderHasBeenPlaced() {
+        DriverUtils.logScreenshot();
         Assert.assertEquals(DriverUtils.driver().getCurrentUrl(), CartPage.COMPLETE_URL);
     }
 }
