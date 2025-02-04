@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CartPage {
-    InventoryPage inventoryPage = new InventoryPage();
-
     /**
      * The URL of the checkout cart landing page, which shows an overview of all items in the cart.
      */
@@ -24,7 +22,8 @@ public class CartPage {
      */
     public static final String COMPLETE_URL = "https://www.saucedemo.com/checkout-complete.html";
 
-    // Forgive this, it's just a hack as I rushed for the demo.
+    // Forgive this, it's just a hack I put together while I rushed to make the demo.
+    // This is all just to click through the ordering pages to get to the confirmation message.
     public static final String checkoutButtonXPath = "//button[@id='checkout']";
     public static final String firstNameTextboxXPath = "//input[@id='first-name']";
     public static final String lastNameTextboxXPath = "//input[@id='last-name']";
