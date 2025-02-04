@@ -7,7 +7,6 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue = {"com.saucelabs.bdd.steps", "com.saucelabs.bdd.hooks"},
         plugin = "html:target/reports/first.html",
-        tags = "@LockedOut",
         dryRun = false
 )
 public class LoginRunner extends AbstractTestNGCucumberTests {
