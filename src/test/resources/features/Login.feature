@@ -1,4 +1,4 @@
-Feature: First test scenario
+Feature: Log in to Swag Labs
 
   Scenario Outline: Login with valid credentials
     Given the user navigates to the Swag Labs login page

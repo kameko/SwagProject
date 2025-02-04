@@ -4,8 +4,6 @@ import com.saucelabs.DriverUtils;
 import com.saucelabs.bdd.pages.InventoryPage;
 import com.saucelabs.bdd.pages.LoginPage;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
@@ -23,24 +21,24 @@ public class LoginSteps {
         loginPage.usernameTextbox.sendKeys(username);
     }
 
-    @And("enters the password {string} into the password textbox")
+    @When("enters the password {string} into the password textbox")
     public void theUserEntersThePasswordIntoThePasswordTextbox(String password) {
         loginPage.passwordTextbox.sendKeys(password);
     }
 
-    @And("clicks on the login button")
+    @When("clicks on the login button")
     public void clicksOnTheLoginButton() {
         DriverUtils.logScreenshot();
         loginPage.loginButton.click();
     }
 
-    @Then("the user is navigated to the inventory page")
+    @When("the user is navigated to the inventory page")
     public void theUserIsNavigatedToTheInventoryPage() {
         DriverUtils.logScreenshot();
         Assert.assertEquals(DriverUtils.driver().getCurrentUrl(), InventoryPage.URL);
     }
 
-    @Then("the user sees the login failure message {string}")
+    @When("the user sees the login failure message {string}")
     public void theUserSeesTheLoginFailureMessage(String message) {
         DriverUtils.logScreenshot();
         Assert.assertEquals(loginPage.errorMessageHeading.getText().trim(), message);
