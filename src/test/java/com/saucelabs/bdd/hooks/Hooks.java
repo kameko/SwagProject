@@ -1,4 +1,4 @@
-package com.saucelabs.bddTests.hooks;
+package com.saucelabs.bdd.hooks;
 
 import com.saucelabs.DriverUtils;
 import io.cucumber.java.After;

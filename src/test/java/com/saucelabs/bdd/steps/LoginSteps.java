@@ -1,8 +1,9 @@
-package com.saucelabs.bddTests.steps;
+package com.saucelabs.bdd.steps;
 
 import com.saucelabs.DriverUtils;
-import com.saucelabs.bddTests.pages.InventoryPage;
-import com.saucelabs.bddTests.pages.LoginPage;
+import com.saucelabs.bdd.pages.InventoryPage;
+import com.saucelabs.bdd.pages.LoginPage;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

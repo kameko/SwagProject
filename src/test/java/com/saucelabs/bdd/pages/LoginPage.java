@@ -1,4 +1,4 @@
-package com.saucelabs.bddTests.pages;
+package com.saucelabs.bdd.pages;
 
 import com.saucelabs.DriverUtils;
 import org.openqa.selenium.WebElement;
